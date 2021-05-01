@@ -1,7 +1,12 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "includes": ["./src/commom/theme/theme.d.ts"],
-    "strict": true
-  }
+    "strict": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"]
+  },
+  "includes": [
+    "src/**/*",
+    "./src/commom/theme/theme.d.ts",
+    "./src/@types/fonts.d.ts"
+  ]
 }
