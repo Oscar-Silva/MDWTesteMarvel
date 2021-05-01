@@ -24,10 +24,20 @@ const Splash = ({ onDoneSplash }: SplashProps) => {
       position: "absolute",
       left: MarvelTitlePositionLeft.value,
       top: MarvelTitlePositionTop.value,
+      zIndex: 999,
     };
   });
 
-  const firstStep = () => {
+  const wait = (miliseconds: number): Promise<void> => {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, miliseconds);
+    });
+  };
+
+  const firstStep = async () => {
+    await wait(800);
     setActualStep(1);
     MarvelTitlePositionLeft.value = withTiming(dimension.width - 172, {
       duration: 1500,
@@ -35,10 +45,11 @@ const Splash = ({ onDoneSplash }: SplashProps) => {
     MarvelTitlePositionTop.value = withTiming(dimension.height - 92, {
       duration: 1500,
     });
-    setTimeout(() => secondStep(), 2501);
+    await wait(2501);
+    secondStep();
   };
 
-  const secondStep = () => {
+  const secondStep = async () => {
     setActualStep(2);
     MarvelTitlePositionLeft.value = withTiming(dimension.width / 2 - 70, {
       duration: 1200,
@@ -46,7 +57,8 @@ const Splash = ({ onDoneSplash }: SplashProps) => {
     MarvelTitlePositionTop.value = withTiming(dimension.height / 2 - 92, {
       duration: 1200,
     });
-    setTimeout(() => onDoneSplash(), 1600);
+    await wait(1600);
+    onDoneSplash();
   };
 
   useEffect(() => {
@@ -68,9 +80,22 @@ const Splash = ({ onDoneSplash }: SplashProps) => {
     <Container>
       <ImageBackground
         source={getBackgroundImage()}
-        style={{ width: dimension.width, height: dimension.height }}
+        style={{
+          width: dimension.width,
+          height: dimension.height,
+        }}
       >
         <MarvelTitle containerStyle={[MarvelTitleAnimatedPosition]} />
+        <View
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#000",
+            opacity: 0.75,
+            zIndex: 1,
+          }}
+        />
       </ImageBackground>
     </Container>
   );
