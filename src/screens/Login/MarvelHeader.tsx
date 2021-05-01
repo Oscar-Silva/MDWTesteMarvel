@@ -12,11 +12,12 @@ const MarvelHeader = () => {
   const MarvelTitlePositionTop = useSharedValue(dimension.height / 2 - 92);
 
   const MarvelTitleAnimatedPosition = useAnimatedStyle(() => ({
+    zIndex: 999,
     top: MarvelTitlePositionTop.value,
   }));
 
   useEffect(() => {
-    MarvelTitlePositionTop.value = withTiming(20, { duration: 800 });
+    MarvelTitlePositionTop.value = withTiming(35, { duration: 800 });
   }, []);
 
   return (
