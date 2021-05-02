@@ -25,7 +25,7 @@ const Form = ({ onLoginPress = () => {} }: FormProps) => {
 
   return (
     <Container>
-      <WelcomeText>Bem-vindo</WelcomeText>
+      <WelcomeText>Bem-vindo!</WelcomeText>
       <MakeLoginText>Fazer login</MakeLoginText>
       <InputContainer>
         <InputText
