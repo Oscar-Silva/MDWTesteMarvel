@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 
 import {
   ContainerModal,
@@ -36,8 +36,17 @@ const MenuModal = ({
       transparent
       onRequestClose={onRequestClose}
     >
-      <Container>
+      <Container onTouchEnd={() => console.log("aaa")}>
         <Wrapper />
+        <Pressable
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+          onPress={onRequestClose}
+        />
         <ProfileContainer>
           <ProfilePictureContainer>
             <Image
@@ -47,7 +56,6 @@ const MenuModal = ({
               style={{ height: 55, width: 55, borderRadius: 100 }}
             />
           </ProfilePictureContainer>
-
           <ProfileMenuContainer>
             <ProfileMenuItem>
               <ProfileMenuItemText>Perfil</ProfileMenuItemText>
