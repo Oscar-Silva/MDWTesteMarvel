@@ -2,6 +2,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { View, Image, ImageBackground, Dimensions } from "react-native";
 import theme from "../../../commom/theme";
+import BackgroundImage1 from "../../../assets/images/Splash/Background2.png";
 
 // import { Container } from './styles';
 
@@ -21,7 +22,7 @@ const BackImage = () => {
         end={{ x: 0, y: 0.75 }}
       />
       <Image
-        source={require("../../../assets/images/Splash/Background2.png")}
+        source={BackgroundImage1}
         style={{
           width: dimension.width,
           height: dimension.height - 440,
