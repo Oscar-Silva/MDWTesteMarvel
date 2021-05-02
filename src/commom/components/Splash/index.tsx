@@ -7,8 +7,9 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import MarvelTitle from "../MarvelTitle";
-
 import { Container } from "./styles";
+import BackgroundImage1 from "../../../assets/images/Splash/Background1.png";
+import BackgroundImage2 from "../../../assets/images/Splash/Background2.png";
 
 interface SplashProps {
   onDoneSplash(): void;
@@ -65,14 +66,14 @@ const Splash = ({ onDoneSplash }: SplashProps) => {
     firstStep();
   }, []);
 
-  const getBackgroundImage = () => {
+  const getBackgroundImage = (): any => {
     switch (actualStep) {
       case 0:
         return null;
       case 1:
-        return require("../../../assets/images/Splash/Background1.png");
+        return BackgroundImage1;
       case 2:
-        return require("../../../assets/images/Splash/Background2.png");
+        return BackgroundImage2;
     }
   };
 
