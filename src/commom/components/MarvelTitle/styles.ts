@@ -1,4 +1,4 @@
-import { ViewProps } from "react-native";
+import { TextProps, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
 interface ContainerProps extends ViewProps {
@@ -14,7 +14,7 @@ export const Container = styled.View<ContainerProps>`
   align-items: center;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text<TextProps>`
   display: flex;
   font-size: 60px;
   font-family: marvel;
