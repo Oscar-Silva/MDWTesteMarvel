@@ -33,7 +33,7 @@ const colors: Colors = {
       "rgba(128,128,128, 0)",
     ],
     secondary: ["#FF0000", "#800000"],
-    secondaryWithOpacity: ["rgba(255, 0, 0, 1)", "rgba(128, 0, 0, 0.30)"],
+    secondaryWithOpacity: ["rgba(128, 0, 0, 0.30)", "rgba(250, 0, 0, 1)"],
   },
 };
 
