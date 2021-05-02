@@ -9,31 +9,9 @@ import {
   DefaultNavigatorOptions,
   ParamListBase,
 } from "@react-navigation/native";
-
-import {
-  Container,
-  SideBarContainer,
-  SideBarItem,
-  SideBarItemContainer,
-  SideBarItemText,
-} from "./styles";
-import theme from "../../commom/theme";
-
-const SideBarMenuItem = ({
-  onPress,
-  title,
-}: {
-  onPress(): void;
-  title: string;
-}) => {
-  return (
-    <SideBarItem onPress={onPress}>
-      <SideBarItemContainer colors={theme.colors.gradient.secondaryWithOpacity}>
-        <SideBarItemText numberOfLines={1}>{title}</SideBarItemText>
-      </SideBarItemContainer>
-    </SideBarItem>
-  );
-};
+import { Container, SideBarContainer } from "./styles";
+import SideBarMenuItem from "./MenuItem";
+import TopBar from "./TopBar";
 
 interface SideBarPinProps {
   initialRouteName?: string;
@@ -59,30 +37,33 @@ export default function SideBarPin({
   return (
     <NavigationHelpersContext.Provider value={navigation}>
       <Container>
-        <SideBarContainer>
-          {state.routes.map((route) => (
-            <SideBarMenuItem
-              key={route.key}
-              onPress={() => {
-                const event = navigation.emit({
-                  type: "tabPress",
-                  target: route.key,
-                  canPreventDefault: true,
-                });
-
-                if (!event.defaultPrevented) {
-                  navigation.dispatch({
-                    ...TabActions.jumpTo(route.name),
-                    target: state.key,
+        <TopBar />
+        <View style={{ flex: 1, display: "flex", flexDirection: "row" }}>
+          <SideBarContainer>
+            {state.routes.map((route) => (
+              <SideBarMenuItem
+                key={route.key}
+                onPress={() => {
+                  const event = navigation.emit({
+                    type: "tabPress",
+                    target: route.key,
+                    canPreventDefault: true,
                   });
-                }
-              }}
-              title={descriptors[route.key].options.title || route.name}
-            />
-          ))}
-        </SideBarContainer>
-        <View style={[{ flex: 1 }, contentStyle]}>
-          {descriptors[state.routes[state.index].key].render()}
+
+                  if (!event.defaultPrevented) {
+                    navigation.dispatch({
+                      ...TabActions.jumpTo(route.name),
+                      target: state.key,
+                    });
+                  }
+                }}
+                title={descriptors[route.key].options.title || route.name}
+              />
+            ))}
+          </SideBarContainer>
+          <View style={[{ flex: 1 }, contentStyle]}>
+            {descriptors[state.routes[state.index].key].render()}
+          </View>
         </View>
       </Container>
     </NavigationHelpersContext.Provider>

@@ -5,7 +5,23 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   display: flex;
   flex: 1;
+  flex-direction: column;
+`;
+
+export const TopBarContainer = styled.View`
+  display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  background-color: ${(props) => props.theme.colors.primary};
+  padding-right: 20px;
+  padding-left: 20px;
+`;
+
+export const TopBarProfileButton = styled.TouchableOpacity<TouchableOpacityProps>`
+  display: flex;
+  width: 60px;
 `;
 
 export const SideBarContainer = styled.View`
