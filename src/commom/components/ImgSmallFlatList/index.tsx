@@ -15,7 +15,12 @@ const ImgSmallFlatList = ({ title, imgURLs = [] }: ImgSmallFlatListProps) => {
   return (
     <Container>
       <Title>{title}</Title>
-      <FlatList data={imgURLs} renderItem={renderItems} horizontal />
+      <FlatList
+        data={imgURLs}
+        renderItem={renderItems}
+        horizontal
+        keyExtractor={(item, index) => index.toString()}
+      />
     </Container>
   );
 };
