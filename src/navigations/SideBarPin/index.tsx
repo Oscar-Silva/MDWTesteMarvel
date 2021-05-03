@@ -39,44 +39,35 @@ export default function SideBarPin({
     (state: RootState) => state.sideBarPinReducer.visible
   );
 
-  if (!visible) {
-    return (
-      <NavigationHelpersContext.Provider value={navigation}>
-        <TopBar />
-        <View style={[{ flex: 1 }, contentStyle]}>
-          {descriptors[state.routes[state.index].key].render()}
-        </View>
-      </NavigationHelpersContext.Provider>
-    );
-  }
-
   return (
     <NavigationHelpersContext.Provider value={navigation}>
       <Container>
         <TopBar />
         <View style={{ flex: 1, display: "flex", flexDirection: "row" }}>
-          <SideBarContainer>
-            {state.routes.map((route) => (
-              <SideBarMenuItem
-                key={route.key}
-                onPress={() => {
-                  const event = navigation.emit({
-                    type: "tabPress",
-                    target: route.key,
-                    canPreventDefault: true,
-                  });
-
-                  if (!event.defaultPrevented) {
-                    navigation.dispatch({
-                      ...TabActions.jumpTo(route.name),
-                      target: state.key,
+          {visible ? (
+            <SideBarContainer>
+              {state.routes.map((route) => (
+                <SideBarMenuItem
+                  key={route.key}
+                  onPress={() => {
+                    const event = navigation.emit({
+                      type: "tabPress",
+                      target: route.key,
+                      canPreventDefault: true,
                     });
-                  }
-                }}
-                title={descriptors[route.key].options.title || route.name}
-              />
-            ))}
-          </SideBarContainer>
+
+                    if (!event.defaultPrevented) {
+                      navigation.dispatch({
+                        ...TabActions.jumpTo(route.name),
+                        target: state.key,
+                      });
+                    }
+                  }}
+                  title={descriptors[route.key].options.title || route.name}
+                />
+              ))}
+            </SideBarContainer>
+          ) : null}
           <View style={[{ flex: 1 }, contentStyle]}>
             {descriptors[state.routes[state.index].key].render()}
           </View>
