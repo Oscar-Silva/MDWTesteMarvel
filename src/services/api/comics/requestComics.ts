@@ -6,7 +6,7 @@ export default async function requestSeries(
 ): Promise<Comic[] | undefined> {
   const result: ComicDataWrapper = (
     await api.get(getAuthURL("/comics"), {
-      params: { limit, orderBy: "-modified" },
+      params: { limit, orderBy: "modified" },
     })
   ).data;
 

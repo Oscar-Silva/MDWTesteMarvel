@@ -6,8 +6,8 @@ export default async function requestComicsCreators(
   limit: number = 10
 ): Promise<Character[] | undefined> {
   const result: CharacterDataWrapper = (
-    await api.get(getAuthURL(`/comics/${seriesID}/characters`), {
-      params: { limit, orderBy: "-modified" },
+    await api.get(getAuthURL(`/comics/${seriesID}/creators`), {
+      params: { limit, orderBy: "modified" },
     })
   ).data;
 
