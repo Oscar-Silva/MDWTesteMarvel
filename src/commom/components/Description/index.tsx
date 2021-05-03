@@ -17,7 +17,6 @@ const Description = ({
   description,
   onShowMorePress = () => {},
 }: DescriptionProps) => {
-  console.log(description);
   return (
     <Container>
       <DescriptionText numberOfLines={6}>{description}</DescriptionText>

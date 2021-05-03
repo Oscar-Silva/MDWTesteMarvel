@@ -41,7 +41,7 @@ const ListItem = ({
   };
 
   return (
-    <Container as={Animated.View} style={[containerStyle]}>
+    <Container key={index} as={Animated.View} style={[containerStyle]}>
       <CardContainer>
         <Picture
           source={{

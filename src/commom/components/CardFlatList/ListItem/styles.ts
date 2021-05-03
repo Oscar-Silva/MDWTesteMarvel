@@ -32,7 +32,7 @@ export const Picture = styled.Image<ImageProps>`
   width: ${CARD_WIDTH - 2}px;
   height: ${CARD_HEIGHT - 2}px;
   border-radius: 30px;
-  z-index: 1px;
+  z-index: 1;
 `;
 
 export const TitleContainer = styled(LinearGradient)<LinearGradientProps>`
@@ -41,7 +41,7 @@ export const TitleContainer = styled(LinearGradient)<LinearGradientProps>`
   width: ${CARD_WIDTH};
   position: absolute;
   bottom: 0;
-  z-index: 2px;
+  z-index: 2;
   justify-content: center;
   align-items: center;
 `;

@@ -17,13 +17,13 @@ export const Container = styled.View<ViewProps>`
   display: flex;
   flex: 1;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1px;
+  z-index: 1;
 `;
 export const Wrapper = styled.View<ViewProps>`
   display: flex;
   height: 20px;
   background-color: ${(props) => props.theme.colors.primary};
-  z-index: 3px;
+  z-index: 3;
 `;
 
 export const ProfileContainer = styled.View<ViewProps>`
@@ -37,7 +37,7 @@ export const ProfileContainer = styled.View<ViewProps>`
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 36px;
   border-top-right-radius: 0px;
-  z-index: 2px;
+  z-index: 2;
 `;
 
 export const ProfilePictureContainer = styled.View<ViewProps>`
