@@ -9,6 +9,7 @@ interface GradientColors {
   primaryWithOpacity1: string[];
   secondary: string[];
   secondaryWithOpacity: string[];
+  secondaryWithOpacity2: string[];
 }
 
 interface Colors {
@@ -34,6 +35,7 @@ const colors: Colors = {
     ],
     secondary: ["#FF0000", "#800000"],
     secondaryWithOpacity: ["rgba(128, 0, 0, 0.30)", "rgba(250, 0, 0, 1)"],
+    secondaryWithOpacity2: ["rgba(128, 0, 0, 0)", "rgba(250, 0, 0, 1)"],
   },
 };
 

@@ -36,7 +36,7 @@ const MenuModal = ({
       transparent
       onRequestClose={onRequestClose}
     >
-      <Container onTouchEnd={() => console.log("aaa")}>
+      <Container>
         <Wrapper />
         <Pressable
           style={{
