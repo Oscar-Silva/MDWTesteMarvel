@@ -20,10 +20,14 @@ import ImgSmallFlatList from "../../../commom/components/ImgSmallFlatList";
 import requestCharactersSeries from "../../../services/api/characters/requestCharactersSeries";
 import { ScrollView } from "react-native-gesture-handler";
 import ImgBoxFlatList from "../../../commom/components/ImgBoxFlatList";
+import { wait } from "../../../services/helpers";
+import { useNavigation } from "@react-navigation/core";
+import { hideSideBar } from "../../../redux/sideBarPin";
 
 const Characters = () => {
   const [actualItemIndex, setActualItemIndex] = useState(0);
   const [apparitionsImgs, setApparitionsImgs] = useState<string[]>([]);
+  const navigation = useNavigation();
 
   const characters = useSelector(
     (state: RootState) => state.charactersReducer.list
@@ -64,6 +68,7 @@ const Characters = () => {
   }, [actualItemIndex]);
 
   const getApparitions = async () => {
+    await wait(100);
     const series = await requestCharactersSeries(
       characters[actualItemIndex]?.id!
     );
@@ -74,13 +79,16 @@ const Characters = () => {
       );
     });
     setApparitionsImgs(apparitoinsImgUrls);
-    console.log(apparitoinsImgUrls);
   };
 
   const onChangeItemIndex = (activeItemIndex: number) => {
     setActualItemIndex(activeItemIndex);
   };
 
+  const ShowAllButtonPress = () => {
+    dispatch(hideSideBar());
+    navigation.navigate("CharactersAll");
+  };
   return (
     <Container>
       <Title>Top 10 - Personagens Populares</Title>
@@ -93,7 +101,7 @@ const Characters = () => {
         <ImgSmallFlatList title={"Aparições"} imgURLs={apparitionsImgs} />
         <ShowAllContainer>
           <ShowAllTitle>Personangens</ShowAllTitle>
-          <ShowAllButton>
+          <ShowAllButton onPress={ShowAllButtonPress}>
             <ShowAllButtonText>+ Ver todos</ShowAllButtonText>
           </ShowAllButton>
         </ShowAllContainer>

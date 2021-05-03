@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../screens/Login";
 import MainNavigator from "./main";
+import CharactersAll from "../screens/Main/CharactersAll";
 
 const Stack = createStackNavigator();
 
