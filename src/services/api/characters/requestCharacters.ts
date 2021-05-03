@@ -6,7 +6,7 @@ export default async function requestCharacters(
 ): Promise<Character[] | undefined> {
   const result: CharacterDataWrapper = (
     await api.get(getAuthURL("/characters"), {
-      params: { limit },
+      params: { limit, orderBy: "-modified" },
     })
   ).data;
 
