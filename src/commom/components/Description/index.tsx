@@ -20,7 +20,7 @@ const Description = ({
   console.log(description);
   return (
     <Container>
-      <DescriptionText>{description}</DescriptionText>
+      <DescriptionText numberOfLines={6}>{description}</DescriptionText>
       <ShowMoreButton onPress={onShowMorePress}>
         <ShowMoreButtonText>ver mais</ShowMoreButtonText>
       </ShowMoreButton>

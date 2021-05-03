@@ -2,9 +2,10 @@ import { PressableProps, TextProps, TouchableOpacityProps } from "react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  max-height: 92px;
-  padding: 10px;
+  display: flex;
+  height: 122px;
   margin-top: 10px;
+  padding-right: 10px;
 `;
 
 export const DescriptionText = styled.Text<TextProps>`
