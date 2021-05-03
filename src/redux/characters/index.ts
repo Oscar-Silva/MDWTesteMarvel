@@ -21,6 +21,7 @@ const charactersReducer = createReducer(initialState, (builder) =>
       state.fetchStatus.loading = true;
     })
     .addCase(fetchCharactersDataSuccess, (state, action) => {
+      state.list = action.payload;
       state.fetchStatus.error = false;
       state.fetchStatus.loading = false;
     })
