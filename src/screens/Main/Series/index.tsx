@@ -75,7 +75,7 @@ const Series = () => {
 
   const ShowAllButtonPress = () => {
     dispatch(hideSideBar());
-    navigation.navigate("");
+    navigation.navigate("SeriesAll");
   };
 
   useEffect(() => {
