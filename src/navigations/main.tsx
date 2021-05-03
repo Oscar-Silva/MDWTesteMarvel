@@ -1,6 +1,7 @@
 import React from "react";
 import Characters from "../screens/Main/Characters";
 import CharacterNavigator from "./characters";
+import SeriesNavigator from "./series";
 import { createSideBarPin } from "./SideBarPin";
 
 const SideBarPin = createSideBarPin();
@@ -18,7 +19,7 @@ const MainNavigator = () => {
       />
       <SideBarPin.Screen
         name={"Films"}
-        component={CharacterNavigator}
+        component={SeriesNavigator}
         options={{
           header: () => null,
           title: "Filmes",
