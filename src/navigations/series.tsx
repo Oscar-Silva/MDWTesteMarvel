@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Series from "../screens/Main/Series";
+import SeriesAll from "../screens/Main/SeriesAll";
 
 const Stack = createStackNavigator();
 
@@ -15,14 +16,14 @@ const SeriesNavigator = () => {
           title: "Filmes",
         }}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name={"SeriesAll"}
-        component={() => null}
+        component={SeriesAll}
         options={{
           header: () => null,
-          title: "Personagens",
+          title: "Todos os personagens",
         }}
-      /> */}
+      />
     </Stack.Navigator>
   );
 };
