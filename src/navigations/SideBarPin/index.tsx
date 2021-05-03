@@ -12,6 +12,8 @@ import {
 import { Container, SideBarContainer } from "./styles";
 import SideBarMenuItem from "./MenuItem";
 import TopBar from "./TopBar";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux";
 
 interface SideBarPinProps {
   initialRouteName?: string;
@@ -33,6 +35,20 @@ export default function SideBarPin({
     screenOptions,
     initialRouteName,
   });
+  const visible = useSelector(
+    (state: RootState) => state.sideBarPinReducer.visible
+  );
+
+  if (!visible) {
+    return (
+      <NavigationHelpersContext.Provider value={navigation}>
+        <TopBar />
+        <View style={[{ flex: 1 }, contentStyle]}>
+          {descriptors[state.routes[state.index].key].render()}
+        </View>
+      </NavigationHelpersContext.Provider>
+    );
+  }
 
   return (
     <NavigationHelpersContext.Provider value={navigation}>
