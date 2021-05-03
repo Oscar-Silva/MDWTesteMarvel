@@ -9,6 +9,7 @@ import AppLoading from "expo-app-loading";
 import fonts from "./assets/fonts";
 import { Provider } from "react-redux";
 import store from "./redux";
+import { View } from "react-native";
 
 const MainApp = () => {
   const [loadedFonts, error] = useFonts({
@@ -23,6 +24,7 @@ const MainApp = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
+          <View style={{ height: 20, backgroundColor: theme.colors.primary }} />
           <Navigator />
         </NavigationContainer>
       </ThemeProvider>

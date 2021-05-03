@@ -18,7 +18,7 @@ const MainNavigator = () => {
       />
       <SideBarPin.Screen
         name={"Films"}
-        component={() => null}
+        component={CharacterNavigator}
         options={{
           header: () => null,
           title: "Filmes",
@@ -26,7 +26,7 @@ const MainNavigator = () => {
       />
       <SideBarPin.Screen
         name={"Comics"}
-        component={() => null}
+        component={CharacterNavigator}
         options={{
           header: () => null,
           title: "Quadrinhos",

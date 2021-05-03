@@ -1,15 +1,23 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../screens/Login";
+import MainNavigator from "./main";
 
 const Stack = createStackNavigator();
 
-const MainNavigator = () => {
+const Navigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={"login"}>
       <Stack.Screen
         name={"login"}
         component={Login}
+        options={{
+          header: () => null,
+        }}
+      />
+      <Stack.Screen
+        name={"main"}
+        component={MainNavigator}
         options={{
           header: () => null,
         }}
@@ -18,4 +26,4 @@ const MainNavigator = () => {
   );
 };
 
-export default MainNavigator;
+export default Navigator;
