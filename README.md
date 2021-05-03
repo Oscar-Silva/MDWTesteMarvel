@@ -4,6 +4,8 @@ Aplicação mobile que exibe dados obtidos da API da Marvel
 
 # Como usar
 
+#### Necessario ter o expo instalado
+
 ### Instalar dependências
 
 ```
@@ -13,7 +15,7 @@ $ yarn install
 ### Executar aplicação em ambiente de desenvolvimento
 
 ```
-$ yarn android
+$ yarn start
 ```
 > OBS: _Também há um .apk para instalação fácil nos releases_
 
