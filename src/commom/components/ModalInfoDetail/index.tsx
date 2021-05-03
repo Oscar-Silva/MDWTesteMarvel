@@ -20,6 +20,7 @@ const ContentAnimated = Animated.createAnimatedComponent(Content);
 interface ModalInfoDetailProps {
   visible: boolean;
   imageUrl: string;
+  rateTitle: string;
   onRequestClose(): void;
   children: React.ReactNode;
 }
@@ -28,6 +29,7 @@ const ModalInfoDetail = ({
   visible = false,
   onRequestClose = () => {},
   children,
+  rateTitle,
   imageUrl,
 }: ModalInfoDetailProps) => {
   const height = useRef(new Animated.Value(250)).current;
@@ -54,24 +56,26 @@ const ModalInfoDetail = ({
           style={{ height }}
         >
           <ImageHeader source={{ uri: imageUrl }} />
-          <InfoContainer>{children}</InfoContainer>
-          <Footer>
-            <FooterTitle>Avaliações dos Fãs</FooterTitle>
-            <FooterRateContainer>
-              <Ionicons name="star" size={26} color={"yellow"} />
-              <Ionicons name="star" size={26} color={"yellow"} />
-              <Ionicons name="star" size={26} color={"yellow"} />
-              <Ionicons name="star" size={26} color={"yellow"} />
-              <Ionicons name="star" size={26} color={"grey"} />
-            </FooterRateContainer>
-            <FooterCloseButton onPress={() => onRequestClose()}>
-              <Ionicons
-                name="close-circle-outline"
-                size={36}
-                color={theme.colors.terciary}
-              />
-            </FooterCloseButton>
-          </Footer>
+          <View style={{ display: "flex", flex: 1, padding: 10 }}>
+            <InfoContainer>{children}</InfoContainer>
+            <Footer>
+              <FooterTitle>{rateTitle}</FooterTitle>
+              <FooterRateContainer>
+                <Ionicons name="star" size={26} color={"yellow"} />
+                <Ionicons name="star" size={26} color={"yellow"} />
+                <Ionicons name="star" size={26} color={"yellow"} />
+                <Ionicons name="star" size={26} color={"yellow"} />
+                <Ionicons name="star" size={26} color={"grey"} />
+              </FooterRateContainer>
+              <FooterCloseButton onPress={() => onRequestClose()}>
+                <Ionicons
+                  name="close-circle-outline"
+                  size={36}
+                  color={theme.colors.terciary}
+                />
+              </FooterCloseButton>
+            </Footer>
+          </View>
         </ContentAnimated>
       </Container>
     </ContainerModal>

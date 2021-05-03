@@ -73,7 +73,7 @@ export const FooterCloseButton = styled.TouchableOpacity<TouchableOpacityProps>`
   width: 38px;
   height: 38px;
   bottom: 25px;
-  right: 25px;
+  right: 15px;
   justify-content: center;
   align-items: center;
 `;

@@ -61,6 +61,7 @@ const CharactersAll = () => {
         visible={modalShowMore}
         imageUrl={`${showMoreCharacter.thumbnail?.path}.${showMoreCharacter.thumbnail?.extension}`}
         onRequestClose={() => setModalShowMore(false)}
+        rateTitle={"Avaliações dos Fãs"}
       >
         <ScrollView style={{ flex: 1 }}>
           <ModalInfoTitle>{showMoreCharacter.name}</ModalInfoTitle>
