@@ -4,9 +4,9 @@ Aplicação mobile que exibe dados obtidos da API da Marvel
 
 # Como usar
 
-#### Necessario ter o expo instalado
+#### Necessário ter o expo instalado
 
-#### Necessario ter o expo instalado
+#### Necessário informar as apiKey's solicitadas pela marvel
 
 ### Instalar dependências
 
