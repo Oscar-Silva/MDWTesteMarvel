@@ -1,4 +1,4 @@
-# Mestres da web - Front-end Challenge | MDWTesteMarvel
+# MDWTesteMarvel
 
 Aplicação mobile que exibe dados obtidos da API da Marvel
 
